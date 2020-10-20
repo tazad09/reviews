@@ -18,6 +18,19 @@ const getList = (id, countParam) => {
 };
 
 
+//const postReview = (id, )
+
+const helpful = (id) => {
+  return Review.findOneAndUpdate({product_id: id}, {$inc: {helpfulness: 1}}).exec()
+}
+
+const report = (id) => {
+  return Review.findOneAndUpdate({product_id: id}, {$set:{reported: true}}).exec()
+}
+
+
 module.exports = {
-  getList
+  getList,
+  helpful,
+  report
 };

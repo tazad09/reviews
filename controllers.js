@@ -17,6 +17,22 @@ const getListById = (req, res) => {
     .catch((err) => console.log(err));
 };
 
+const putHelpful = (req, res) => {
+  var id = req.params.review_id;
+  models
+    .helpful(id)
+    .then(() => res.sendStatus(201))
+    .catch((err) => res.sendStatus(404));
+
+};
+
+const reportReview = (req, res) => {
+  var id = req.params.review_id;
+  models.report(id).then(() => res.sendStatus(201)).catch((err) => res.sendStatus(404))
+}
+
 module.exports = {
-  getListById
+  getListById,
+  putHelpful,
+  reportReview
 };

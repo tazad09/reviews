@@ -17,22 +17,42 @@ const getListById = (req, res) => {
     .catch((err) => console.log(err));
 };
 
+const postReview = (req, res) => {
+  var id = req.params.product_id;
+  var rating = req.body.rating;
+  var summary =  req.body.summary;
+  var body = req.body.body;
+  var recommend =  req.body.recommend;
+  var name = req.body.name;
+  var email = req.body.email;
+  var photos = req.body.photos;
+  var charObject = req.body.characteristics;
+
+  models.addReview(id, rating, summary, body, recommend, name, email, photos, charObject)
+  .then (() => {
+    res.sendStatus(201)
+  })
+  .catch((err) => console.log(err))
+}
+
+
 const putHelpful = (req, res) => {
   var id = req.params.review_id;
   models
     .helpful(id)
-    .then(() => res.sendStatus(201))
+    .then(() => res.sendStatus(204))
     .catch((err) => res.sendStatus(404));
 
 };
 
 const reportReview = (req, res) => {
   var id = req.params.review_id;
-  models.report(id).then(() => res.sendStatus(201)).catch((err) => res.sendStatus(404))
+  models.report(id).then(() => res.sendStatus(204)).catch((err) => res.sendStatus(404))
 }
 
 module.exports = {
   getListById,
   putHelpful,
-  reportReview
+  reportReview,
+  postReview
 };

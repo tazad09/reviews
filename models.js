@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-mongoose.connect('mongodb://localhost:27017/reviewsdb')
+//mongoose.connect('mongodb://localhost:27017/reviewsdb')
 
 const reviewsSchema = require('./schemas').reviewsSchema;
 const characteristicSchema = require('./schemas').characteristicSchema;

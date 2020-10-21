@@ -5,15 +5,16 @@ const bodyParser = require("body-parser");
 const morgan = require('morgan');
 const router = require("./routers.js")
 
-mongoose.connect('mongodb://localhost:27017/reviewsdb', () => console.log('connected!'))
+mongoose.connect('mongodb://mongo:27017/reviewsdb', () => console.log('connected!'))
+//mongoose.connect('mongodb://host.docker.internal:27017/reviewsdb', () => console.log('connected!'))
 
 
 app.use(bodyParser.json());
-app.use(morgan('dev'));
+//app.use(morgan('dev'));
 
 app.use("/reviews", router)
 
-const port = 2000;
+const port = 3000;
 app.listen(port, () => {
-  console.log('listening on port 2000')
+  console.log('listening on port 3000')
 })

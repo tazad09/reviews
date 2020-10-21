@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+
 const reviewsSchema = require('./schemas').reviewsSchema;
 const characteristicSchema = require('./schemas').characteristicSchema;
 const characteristicsReviewsSchema = require('./schemas').characteristicsReviewsSchema;
@@ -12,7 +13,9 @@ var ReviewPhoto = mongoose.model('ReviewPhoto', reviewsPhotosSchema);
 
 
 //run this function with .lean() to observe the performance
-
+const getList = (id, countParam) => {
+  return Review.find({product_id: id}).limit(countParam).sort({'helpfulness': -1}).exec()
+};
 
 
 

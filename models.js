@@ -17,8 +17,6 @@ const getList = (id, countParam) => {
   return Review.find({product_id: id}).limit(countParam).sort({'helpfulness': -1}).exec()
 };
 
-
-
 const addReview = (id, rating, summary, body, recommend, name, email, photos, charObject) => {
   // var newReview = new Review ({
   //   product_id: id,
@@ -79,7 +77,6 @@ const helpful = (id) => {
 const report = (id) => {
   return Review.findOneAndUpdate({product_id: id}, {$set:{reported: true}}).exec()
 }
-
 
 module.exports = {
   getList,

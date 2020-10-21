@@ -1,9 +1,9 @@
 version: "3.8"
 services:
   web:
-    image: reviews
-    build: .
-    command: "node server.js"
+    image: tasnimazad/reviews:latest
+    # build: .
+    # command: "node server.js"
     ports:
       - "3000:3000"
     depends_on:

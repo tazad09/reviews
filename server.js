@@ -5,9 +5,9 @@ const bodyParser = require("body-parser");
 const morgan = require('morgan');
 const router = require("./routers.js")
 
-//mongoose.connect('mongodb://mongo:27017/reviewsdb', () => console.log('connected!'))
+mongoose.connect('mongodb://mongo:27017/reviewsdb', () => console.log('connected!'))
 //host.docker.internal gets the data from the local database
-mongoose.connect('mongodb://host.docker.internal:27017/reviewsdb', () => console.log('connected!'))
+//mongoose.connect('mongodb://host.docker.internal:27017/reviewsdb', () => console.log('connected!'))
 
 
 app.use(bodyParser.json());
